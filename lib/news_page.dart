@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_testing_tutorial/article_page.dart';
 import 'package:flutter_testing_tutorial/news_change_notifier.dart';
+import 'package:provider/provider.dart';
 
 class NewsPage extends StatefulWidget {
   const NewsPage({Key? key}) : super(key: key);
@@ -29,7 +29,9 @@ class _NewsPageState extends State<NewsPage> {
         builder: (context, notifier, child) {
           if (notifier.isLoading) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                key: Key('progress-indicator'),
+              ),
             );
           }
           return ListView.builder(
